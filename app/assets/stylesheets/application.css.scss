@@ -1,0 +1,666 @@
+
+
+// @import "bootstrap-sprockets"
+@import "bootstrap";
+/* welcome page */
+
+
+/* bidding */
+//______________________________________________________________________________
+.dropdown {
+  position: relative;
+  display: inline-block;
+	width: 100%;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+	padding: 0;
+	width: 100%;
+	height: 35px;
+
+}
+
+//______________________________________________________________________________
+//______________________________________________________________________________
+
+/* nav */
+.nav {
+	position: fixed;
+  top:0;
+  width: 100%;
+  // overflow: hidden;
+  padding: 3px;
+  padding-bottom: 5px;
+  padding-left: 20%;
+  background-color: #216895;
+  color: black;
+  .navdropdown {
+
+    display: inline-block;
+    position: relative;
+    display: inline-block;
+    span{
+      color:white;
+      margin: auto;
+    }
+  }
+
+  .navdropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px 10px;
+    z-index: 1;
+  }
+
+  .navdropdown:hover .navdropdown-content {
+    display: block;
+  	padding: 10px;
+  	width: 100%;
+
+  }
+}
+.nav ul {
+	margin: 0;
+	padding: 0;
+  font-size: 15px;
+}
+.nav li {
+	// margin: 0 5px 10px 0;
+	padding: 0;
+	list-style: none;
+	display: inline-block;
+}
+.nav a {
+	padding: 3px 12px;
+	text-decoration: none;
+	color: #999;
+	line-height: 100%;
+}
+.nav a:hover {
+	color: #000;
+}
+.nav .current a {
+	color: #fff;
+	border-radius: 5px;
+  .heading{
+    font-weight: bolder;
+    color : white;
+    padding-top: 5px;
+    text-align: center;
+    font-family: monospace;
+    font-size: 20px;
+
+    .on{
+      background-color: white;
+      display: inline-block;
+      line-height: 1;
+      padding-left: 3px;
+      padding-right: 3px;
+      border-radius: 4px;
+      color: #3F7FBC;
+    }
+  }
+}
+
+/* right nav */
+.nav.right ul {
+	text-align: right;
+}
+
+/* center nav */
+.nav.center ul {
+	text-align: center;
+}
+
+
+
+.show-product{
+  margin-top: 50px;
+}
+//______________________________________________________________________________
+//______________________________________________________________________________
+
+@media screen and (max-width: 600px) {
+
+  #wrapper {
+      width: 100%;
+      margin-bottom: 50px;
+      border-bottom: solid;
+      border-color: #C8C8C8;
+      overflow: hidden; /* add this to contain floated children */
+  }
+  #fourth{
+    display: inline-block;
+    margin: auto;
+    margin-bottom: 10px;
+    width:400px;
+  }
+
+  .signup-form{
+    margin: 20px;
+  }
+	.nav {
+		position: relative;
+		min-height: 40px;
+    background-color: blue;
+    color: black;
+    .navdropdown {
+
+      display: inline-block;
+      position: relative;
+      display: inline-block;
+      span{
+        color:white;
+        margin: auto;
+      }
+    }
+
+    .navdropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      padding: 12px 16px 10px;
+      z-index: 1;
+    }
+
+    .navdropdown:hover .navdropdown-content {
+      display: block;
+    	padding: 10px;
+    	width: 100%;
+
+    }
+	}
+	.nav ul {
+		width: 100%;
+		padding: 5px 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		// border: solid 1px #aaa;
+		background: #216895 url(images/icon-menu.png) no-repeat 10px 11px;
+		// border-radius: 5px;
+		// box-shadow: 0 1px 2px rgba(0,0,0,.3);
+	}
+	.nav li {
+		display: none; /* hide all <li> items */
+		margin: 0;
+	}
+	.nav .current {
+		display: block; /* show only current <li> item */
+	}
+	.nav a {
+		display: block;
+		padding: 5px 5px 5px 32px;
+		text-align: left;
+	}
+	.nav .current a {
+		background: none;
+		color: #666;
+    .heading{
+      font-weight: bolder;
+      color : white;
+      padding-top: 5px;
+      text-align: center;
+      font-family: monospace;
+      font-size: 20px;
+
+      .on{
+        background-color: white;
+        display: inline-block;
+        line-height: 1;
+        padding-left: 3px;
+        padding-right: 3px;
+        border-radius: 4px;
+        color: #3F7FBC;
+      }
+	}
+}
+
+	/* on nav hover */
+	.nav ul:hover {
+		background-image: none;
+	}
+	.nav ul:hover li {
+		display: block;
+		margin: 0 0 5px;
+	}
+	.nav ul:hover .current {
+		background: url(images/icon-check.png) no-repeat 10px 7px;
+	}
+
+	/* right nav */
+	.nav.right ul {
+		left: auto;
+		right: 0;
+	}
+
+	/* center nav */
+	.nav.center ul {
+		left: 50%;
+		margin-left: -90px;
+	}
+
+}
+
+//______________________________________________________________________________
+//______________________________________________________________________________
+
+/* hola nitk container on home page*/
+
+.jumbotron{
+  background-color: #3F7FBC;
+  color:white;
+  .heading{
+    font-weight: bolder;
+    color : white;
+    padding-top: 5px;
+    text-align: center;
+    font-family: monospace;
+    font-size: 40px;
+    .on{
+      background-color: white;
+      display: inline-block;
+      line-height: 1;
+      padding-left: 5px;
+      padding-right: 5px;
+      border-radius: 7px;
+      color: #3F7FBC;
+    }
+  }
+  .hello{
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .introduction{
+    .guidelines{
+      font-size: 20px;
+
+    }
+    .content{
+      align-items: center;
+      text-align: center;
+      b{
+        color: #BC0E04;
+      }
+    }
+    #wrappero{
+      overflow:hidden;
+      text-align: center;
+      align-items: center;
+      display: inline-block;
+      #firsto{
+        float:left;
+        padding: 7px;
+        background-color: #B2D8EA;
+        border-radius: 5px;
+        margin: 7px;
+        display: inline-block;
+      }
+      #secondo{
+        float:left;
+        padding: 7px;
+        background-color: #B2D8EA;
+        margin: 7px;
+        border-radius: 5px;
+        display: inline-block;
+      }
+    }
+
+  }
+}
+
+//______________________________________________________________________________
+//______________________________________________________________________________
+
+
+/* product containers*/
+
+#wrapper {
+    width: 86%;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-bottom: 50px;
+    border-bottom: solid;
+    border-color: #C8C8C8;
+    overflow: hidden; /* add this to contain floated children */
+}
+#first {
+    width: 400px;
+    margin: 20px;
+    margin-right: 0;
+    img{
+      border-radius: 10px;
+    }
+    float:left; /* add this */
+}
+#second {
+    width: 370px;
+    margin-top: 20px;
+    margin-right: 100px;
+    float: left; /* add this */
+    .feild{
+      color:#608FD2;
+      text-transform: capitalize;
+      margin: 0px;
+      font-weight: 400;
+    }
+    .uploader{
+      font-size: 10px;
+    }
+    .text{
+      font-size: 12px;
+    }
+    .integer{
+      color: #BC0E04;
+      font-weight: bold;
+      border-bottom: solid;
+      border-width: 1px;
+      border-color: #C8C8C8;
+    }
+    .contact{
+      font-family: arial;
+      margin-top: 7px;
+      margin-bottom: 7px;
+    }
+}
+#third{
+  .buttons{
+    .checkbox{
+
+    }
+  }
+}
+#fourth{
+  .deadline{
+      blink {
+        font-size: 15px;
+        font-weight: bold;
+        background-color: #FB8181;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 5px;
+        // display: inline-block;
+        display: flex;
+        width: 200px;
+        margin:auto;
+        align-items: center;
+      -webkit-animation: 2s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
+      animation: 2s linear infinite condemned_blink_effect;
+    }
+    //blinking effect
+  /* for Safari 4.0 - 8.0 */
+  @-webkit-keyframes condemned_blink_effect {
+    0% {
+      visibility: hidden;
+    }
+    50% {
+      visibility: hidden;
+    }
+    100% {
+      visibility: visible;
+    }
+  }
+
+  @keyframes condemned_blink_effect {
+    0% {
+      visibility: hidden;
+    }
+    50% {
+      visibility: hidden;
+    }
+    100% {
+      visibility: visible;
+    }
+  }
+  }
+}
+
+//______________________________________________________________________________
+//______________________________________________________________________________
+
+// div.sticky {
+// position: -webkit-sticky;
+// position: sticky;
+// top: 0;
+// background-color: yellow;
+// padding: 50px;
+// font-size: 20px;
+// }
+//
+// #navbar {
+//   overflow: hidden;
+//   background-color: white;
+//   width: 100%;
+//   height: 10px;
+// }
+//
+// /* Navbar links */
+// #navbar a {
+//   float: left;
+//   display: block;
+//   color: #f2f2f2;
+//   text-align: center;
+//   padding: 10px;
+//   text-decoration: none;
+// }
+
+
+//______________________________________________________________________________
+//______________________________________________________________________________
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
+//______________________________________________________________________________
+//______________________________________________________________________________
+
+/* css to other dashboards and show product*/
+
+.show_products{
+  border-bottom: solid;
+  border-color: #C8C8C8;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+}
+
+
+//______________________________________________________________________________
+//______________________________________________________________________________
+
+/* css to forms */
+
+.newproduct{
+  background-color: grey;
+}
+
+.form-container{
+  #grid{
+
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 10px;
+    // display: flex;
+    align-items: center;
+
+  }
+  #gridcell1{
+    float:left;
+    // padding: 7px;
+    // background-color: #B2D8EA;
+    border-radius: 5px;
+    margin-right: 50px;
+    // height: 300px;
+    font-size: 20px;
+    color : white;
+    font-family:monospace;
+    ul{
+      font-size: 10px;
+    }
+    // display: inline-block;
+    width:300px;
+  }
+  #gridcell2{
+    float:left;
+    padding: 10px;
+    background-color: white;
+    // margin-left: 20px;
+    border-radius: 1px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.3);
+    // display: inline-block;
+    width:300px;
+    .terms{
+      font-size: 7px;
+      margin: 2px;
+    }
+    .feild{
+      font-weight: bold;
+      margin-bottom: 15px;
+      .description{
+        border-radius: 5px;
+        }
+      .date{
+        width: 100%;
+        }
+      }
+      .input{
+        width: 100%;
+      }
+      .actions{
+        .button{
+          width:100%;
+        }
+      }
+    }
+}
+
+//______________________________________________________________________________
+//______________________________________________________________________________
+
+
+
+
+.newuser,.newproduct{
+  background-color: #3F7FBC;
+
+  height: 790px;
+  .form-container{
+    padding-left: 10px;
+  }
+  .heading{
+    font-weight: bolder;
+    color : white;
+    padding-top: 50px;
+    text-align: center;
+    font-family: monospace;
+    font-size: 40px;
+
+    .on{
+      background-color: white;
+      display: inline-block;
+      line-height: 1;
+      padding-left: 5px;
+      padding-right: 5px;
+      border-radius: 7px;
+      color: #3F7FBC;
+    }
+  }
+  .introduction{
+    text-align: center;
+    color: white;
+    font-family: monospace;
+    font-size: 20px;
+    line-height: 2
+  }
+}
+
+
+
+//signup-form
+.signup-form,.login-form{
+  margin:auto;
+
+  width: 300px;
+  background-color: white;
+  padding: 10px;
+
+  .field{
+    font-family: monospace;
+    font-size: 15px;
+
+  }
+}
+
+//______________________________________________________________________________
+//______________________________________________________________________________
+//______________________________________________________________________________
+
+//footer
+
+//
+// .error, .alert, #notice, .success, .info ,.flash{padding:0.8em;margin-bottom:1em;border:2px solid #ddd;}
+// .success {background:#e6efc2;color:#264409;border-color:#c6d880;}
+
+
+
+//#myproducts
+
+#myproducts, #uploadedproducts{
+  margin-left: 4%;
+  margin-top: 50px;
+  display: inline-block;
+
+  .heading{
+    font-family: monospace;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
+  #wrapper{
+    border: solid 1px;
+    width: 350px;
+    padding-bottom: 5px;
+    display: inline-block;
+    margin: auto;
+  }
+  #second{
+    margin-top: 0px;
+    margin-left: 20px;
+    border-left: solid 5px yellow;
+    padding-left: 5px;
+    width :300px;
+    .text{
+      height: 100px;
+    }
+  }
+  #third{
+    margin-left: 10%;
+  }
+}

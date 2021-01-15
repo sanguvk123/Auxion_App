@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Auxion</title>
+    <%= csrf_meta_tags %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+  <header>
+
+    <% if current_user %>
+    <nav class="nav">
+	     <ul>
+		       <li class="current"><a class="navbar-brand" href="/products">
+            <div class="heading">
+             Auxi<div class="on">on</div>
+           </div></a></li>
+           <div class="navdropdown">
+             <span>☰</span>
+               <div class="navdropdown-content">
+                 <p>
+                   <li><%= link_to 'New Product', new_product_path %></li><br>
+                   <li><%= link_to ' ⟰ Products', uploaded_products_path %></li><br>
+                   <li><%= link_to ' ⟱ Products', my_products_path %></li><br>
+                   <li class= "logout"><%= link_to "Log Out", logout_path %></li>
+                 </p>
+               </div>
+           </div>
+           <% end %>
+        </ul>
+    </nav>
+
+
+  </header>
+  <body>
+
+    <%= yield %>
+  </body>
+
+</html>

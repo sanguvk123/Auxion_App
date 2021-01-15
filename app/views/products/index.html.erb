@@ -1,0 +1,134 @@
+<p id="notice"><%= notice %></p>
+
+    <script type="text/javascript">
+
+      function myproduct() {
+        product.myproduct = true;
+      }
+
+    </script>
+<header>
+  <div class="jumbotron">
+    <div class="hello">
+      <% if current_user %>
+      Hola <%= current_user.email %> here's your own Auction App.
+      <% else %>
+      <div class="nitk">
+        Hello! NITK
+      </div>
+      <div class="welcome">
+        Welcome to your own Auction App.
+      </div>
+      <div class="heading">
+        Auxi<div class="on">on</div>
+      </div>
+      <% end %>
+    </div>
+    <div class="introduction">
+      <div class="guidelines">
+       Wanna take part in Auction?<br>
+       Wanna sell your items on Auction?<br>
+       Wanna buy products by competing with your mates in bidding?<br><br>
+
+       No worries all you need to do is just login and ENJOY...
+      </div>
+      <% if not current_user %>
+      <div class="content">
+        <blink><b>Pro Tip!</b> 😅 You need to Login to take part in Auction.</blink>
+      <div class="links">
+        <div id="wrappero">
+          <div id="firsto">
+            <%= link_to "Sign Up ", signup_path %>
+          </div>
+          <div id="secondo">
+            <%= link_to "Log In", login_path %>
+          </div>
+        </div>
+      </div>
+      </div><br><br><br><br><br><br><br><br><br>
+      <% end %>
+
+    </div>
+  </div>
+</header>
+<% @products.each do |product| %>
+<% if current_user %>
+<% if Date.current.midnight < product.deadline and product.myproduct == false or product.claim == current_user.email %>
+<% if product.myproduct == false %>
+<div id="wrapper">
+<div id="first">
+  <div class="image">
+    <%= image_tag( product.image, :size => "260x180", :crop => :fill) %>
+  </div>
+</div>
+<div id="second">
+  <div class="feild">
+    <b><%= link_to product.name, product %></b>
+  </div>
+
+  <div class="uploader">
+     by <%= product.user.email %>
+    <% if product.user == current_user %>
+    <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?'} %>
+    <% end %>
+  </div>
+  <div class="text">
+    <%= product.description %>
+  </div>
+  <% if product.claim %>
+    Current maximum bidder is Mr. <%= product.claim %>
+  <% end %>
+  <div class="integer">
+    ₹<%= product.starting_bid %>.00
+    <% if Date.current.midnight < product.deadline %>
+    <% if current_user %>
+    <%= form_with(model: product, local: true) do |form| %>
+    <div class="dropdown">
+      <span>Bid</span>
+        <div class="dropdown-content">
+          <p>
+            <%= form.number_field :starting_bid, id: :product_starting_bid, style: 'width: 60%; border-radius:2px; border-shadow:none; border:solid 1px;' %>
+            <%= form.submit 'Bid', class: 'button', style:  'color:white; width: 35%; border-radius:2px; background-color:#1190DA; padding:5px; border-shadow:none; border:solid 1px blue;'%>
+          </p>
+        </div>
+    </div>
+    <% end %>
+    <% end %>
+    <% end %>
+  </div>
+  <div class="contact">
+    <b>For more details contact <%= product.contact %></b>
+  </div>
+</div>
+<div id="third">
+  <div class="buttons">
+    <% if Date.current.midnight >= product.deadline %>
+    <% if current_user and current_user.email == product.claim %>
+    <div class="checkbox">
+    <%= form_with(model: product, local: true) do |form| %>
+    <%# <%= form.label :claim? %>
+    <% if product.myproduct == false %>
+      <%= form.check_box :myproduct, id: :product_myproduct %>
+      <%= form.submit 'claim', class: 'button' , style:  'color:white; border-radius:8px; background-color:#1190DA; padding:5px; border-shadow:none; border:solid 1px lightgreen;'%>
+    </div>
+    <% end %>
+    <% end %>
+    <% else %>
+    <button type="button" disabled class="btn btn-warning">claimed by Mr.<%= product.claim %></button>
+    <% end %>
+    <% end %>
+  </div>
+</div>
+<div id="fourth">
+  <% if Date.current.midnight < product.deadline %>
+  <div class="deadline">
+    <blink>Deadline <%= product.deadline %></blink>
+  </div>
+  <% end %>
+
+</div>
+</div>
+<% end %>
+<% end %>
+<% end %>
+<% end %>
